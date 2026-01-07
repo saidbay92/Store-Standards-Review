@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Store Standards Review</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <!-- Put your logo file in the same folder as index.html and name it logo.png -->
+      <img class="brand-logo" src="logo.png" alt="Logo" onerror="this.style.display='none'">
+      <div class="brand-text">
+        <div class="brand-title">Store Standards Review</div>
+        <div class="brand-subtitle">Web Form • Auto-score • Email PDF</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Review details</h2>
+
+      <div class="grid-2">
+        <div>
+          <label>Store</label>
+          <input id="store" placeholder="e.g., Miranda" />
+        </div>
+        <div>
+          <label>Store Manager</label>
+          <input id="storeManager" placeholder="Name" />
+        </div>
+        <div>
+          <label>Review date</label>
+          <input id="reviewDate" type="date" />
+        </div>
+        <div>
+          <label>Reviewed by</label>
+          <input id="reviewedBy" placeholder="Name" />
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div>
+          <label>Recipient emails (comma-separated)</label>
+          <input id="recipientEmails" placeholder="ops@..., manager@..." />
+        </div>
+        <div>
+          <label>Your name (submitted by)</label>
+          <input id="submittedBy" placeholder="Said" />
+        </div>
+      </div>
+
+      <div class="note">
+        Scoring: each line item is 0 / 1 / 2 points. Each section max = 10. Total max = 100.
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="score-row">
+        <div>
+          <h2>Live score</h2>
+          <div class="score-big">
+            <span id="totalScore">0</span><span class="muted">/100</span>
+          </div>
+        </div>
+        <div class="rating-box" id="ratingBox">
+          <div class="rating-label">Overall rating</div>
+          <div class="rating-value" id="overallRating">Red</div>
+          <div class="rating-hint">(Red / Amber / Green)</div>
+        </div>
+      </div>
+
+      <h3>Section scores</h3>
+      <div id="sectionScores" class="section-scores"></div>
+    </section>
+
+    <section class="card">
+      <h2>Checklist</h2>
+      <p class="muted">Tap 0 / 1 / 2 for each line item.</p>
+      <div id="sections"></div>
+    </section>
+
+    <section class="card">
+      <h2>Photos (optional)</h2>
+      <p class="muted">You can add up to 5 photos. The app will auto-compress for faster sending.</p>
+      <input id="photos" type="file" accept="image/*" capture="environment" multiple />
+      <div id="photoPreview" class="photo-preview"></div>
+    </section>
+
+    <section class="card">
+      <h2>Overall comments</h2>
+      <textarea id="overallComments" placeholder="Write overall comments here..."></textarea>
+    </section>
+
+    <section class="card">
+      <h2>Agreed action plan</h2>
+      <p class="muted">Add rows as needed (Item/Ref, Action point, By who, By when).</p>
+
+      <div class="actions-toolbar">
+        <button id="addActionRow" class="btn-secondary" type="button">+ Add action row</button>
+      </div>
+
+      <div class="table-wrap">
+        <table class="actions-table">
+          <thead>
+            <tr>
+              <th style="width: 16%;">Item/Ref</th>
+              <th>Action point</th>
+              <th style="width: 18%;">By who</th>
+              <th style="width: 18%;">By when</th>
+            </tr>
+          </thead>
+          <tbody id="actionRows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Submit</h2>
+      <div class="grid-2">
+        <button id="submitBtn" class="btn-primary" type="button">Submit & Email PDF</button>
+        <button id="downloadJsonBtn" class="btn-secondary" type="button">Download JSON (backup)</button>
+      </div>
+      <p id="status" class="status"></p>
+    </section>
+
+    <footer class="footer">
+      <div class="muted">Tip: Add this page to your phone home screen for an app-like experience.</div>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
