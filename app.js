@@ -4,7 +4,7 @@
  *
  * ✅ You must set your Apps Script endpoint URL below.
  */
-const ENDPOINT_URL = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
+const ENDPOINT_URL = "https://script.google.com/macros/s/AKfycbx_Es-gaXFC4M1WisLVFrzeEheaZzgh69gKLFjSsBfCaqOWI4NXE665hFVmUOlq0JEL/exec";
 
 // You can adjust these thresholds anytime.
 const RATING_THRESHOLDS = {
